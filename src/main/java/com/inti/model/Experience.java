@@ -12,7 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table
+@Table(name="experiencep2")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Experience {
 	

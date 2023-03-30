@@ -9,11 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table
+@Entity @Table(name="Compagnieaeriennep2")
 @Data @NoArgsConstructor @AllArgsConstructor
 public class CompagnieAerienne extends Compagnie {
 	
-	@Id 
+	
 	protected int id_ca;
 	
 	

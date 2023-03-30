@@ -1,23 +1,22 @@
 package com.inti.model;
-
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table (name = "UtilisateurP2")
+
+
+@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
+@DiscriminatorColumn(name="user_id",discriminatorType = DiscriminatorType.INTEGER)
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {
 	
@@ -32,8 +31,8 @@ public class Utilisateur {
 	protected String mdp;
 	protected boolean abonne_nl;
 	
-	@OneToMany(mappedBy = "utilisateur")
-	private List<Experience> listeExperience;
+	//@OneToMany(mappedBy = "utilisateur")
+	//private List<Experience> listeExperience;
 	
 	@ManyToMany
     @JoinTable(name="Utilisateur_Guide",

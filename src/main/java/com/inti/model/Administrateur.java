@@ -11,8 +11,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity 
 @DiscriminatorValue("1")
+
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Administrateur extends Utilisateur {
 

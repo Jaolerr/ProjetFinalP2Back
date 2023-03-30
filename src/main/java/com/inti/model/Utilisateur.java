@@ -31,9 +31,8 @@ public class Utilisateur {
 	protected String mdp;
 	protected boolean abonne_nl;
 	
-	@OneToMany(mappedBy = "utilisateur")
-	
-	private List<Experience> listeExperience;
+	//@OneToMany(mappedBy = "utilisateur")
+	//private List<Experience> listeExperience;
 	
 //	@ManyToMany
 //    @JoinTable(name="Utilisateur_Guide",

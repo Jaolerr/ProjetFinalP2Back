@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table
+@Table(name="trajetp2")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Trajet {
 	

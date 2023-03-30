@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,10 +39,10 @@ public class Utilisateur {
 	//@OneToMany(mappedBy = "utilisateur")
 	//private List<Experience> listeExperience;
 	
-//	@ManyToMany
-//    @JoinTable(name="Utilisateur_Guide",
-//    joinColumns = @JoinColumn(name = "idU"), 
-//	inverseJoinColumns = @JoinColumn(name = "idG"))
-//    private List<Guide> listeGuide;
+	@ManyToMany
+    @JoinTable (name="Utilisateur_Guide",
+    joinColumns = @JoinColumn(name = "idU"), 
+	inverseJoinColumns = @JoinColumn(name = "idG"))
+    private List<Guide> listeGuide;
     
 }

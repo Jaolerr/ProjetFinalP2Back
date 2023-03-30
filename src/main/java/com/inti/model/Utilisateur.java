@@ -35,10 +35,10 @@ public class Utilisateur {
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Experience> listeExperience;
 	
-//	@ManyToMany
-//    @JoinTable(name="Utilisateur_Guide",
-//    joinColumns = @JoinColumn(name = "idU"), 
-//	inverseJoinColumns = @JoinColumn(name = "idG"))
-//    private List<Guide> listeGuide;
+	@ManyToMany
+    @JoinTable(name="Utilisateur_Guide",
+    joinColumns = @JoinColumn(name = "idU"), 
+	inverseJoinColumns = @JoinColumn(name = "idG"))
+    private List<Guide> listeGuide;
     
 }

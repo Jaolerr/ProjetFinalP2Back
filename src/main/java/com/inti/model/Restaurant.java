@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity @Table(name = "RestaurantP2")
+@Entity @Table(name = "a_restaurantP2")
 public class Restaurant {
 
 	@Id

@@ -39,10 +39,7 @@ public class Utilisateur {
 	@OneToMany(mappedBy = "u")
 	private List<Experience> listeExperience;
 	
-	@ManyToMany
-    @JoinTable (name="Utilisateur_Guide",
-    joinColumns = @JoinColumn(name = "idU"), 
-	inverseJoinColumns = @JoinColumn(name = "idG"))
+	@ManyToMany(mappedBy = "listeUtilisateur")
     private List<Guide> listeGuide;
     
 }

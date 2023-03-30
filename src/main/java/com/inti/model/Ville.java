@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+
+
+import javax.persistence.JoinTable;
+
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -28,6 +32,7 @@ public class Ville {
 	@JoinColumn(name="id_pays")
 	private Pays pays;
 	
+	
 	@ManyToMany(mappedBy = "listVilleExp")
 	private List<Experience> listExp;
 	
@@ -36,6 +41,10 @@ public class Ville {
 	
 	@OneToMany(mappedBy = "ville")
 	private List<Restaurant> listResto;
+	
+	@OneToMany(mappedBy = "ville")
+	private List<Lieux> listLieux;
+
 	
 	public Ville(String nom) {
 		super();

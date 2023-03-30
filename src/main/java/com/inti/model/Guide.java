@@ -29,13 +29,15 @@ public class Guide {
 	
 
 	@ManyToMany
-    @JoinTable(name="Utilisateur_Guide",
+    @JoinTable(name="a_Utilisateur_Guide",
     joinColumns = @JoinColumn(name = "idG"), 
 	inverseJoinColumns = @JoinColumn(name = "idU"))
     private List<Utilisateur> listeUtilisateur;
 	
+
 	
 	@ManyToOne
 	@JoinColumn(name="idv")
 	private Ville ville;
+
 }

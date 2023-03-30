@@ -12,13 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 
-@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
+@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @Table(name = "a_users")
 @DiscriminatorColumn(name="user_discrim",discriminatorType = DiscriminatorType.INTEGER)
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {

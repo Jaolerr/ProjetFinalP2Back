@@ -16,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "guideP2")
+@Table(name = "a_guideP2")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

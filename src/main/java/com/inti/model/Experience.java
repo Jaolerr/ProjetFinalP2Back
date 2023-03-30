@@ -1,11 +1,21 @@
 package com.inti.model;
 
+import java.util.List;
+
 import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +34,17 @@ public class Experience {
 	private double depense;
 	private double rating_moyen;
 	
+	@ManyToOne(targetEntity = Utilisateur.class)
+	@JoinColumn(name="idu")
+	private Utilisateur u;
+	
+	@ManyToMany
+	@JoinTable(name="a_exp_ville")
+	private List<Ville> listVilleExp;
+	
+	@ManyToOne(targetEntity = Compagnie.class)
+	@JoinColumn(name="idc")
+	private Compagnie compagnie;
 	
 	public Experience(String destination, String description, String photo, double depense, double rating_moyen) {
 		super();

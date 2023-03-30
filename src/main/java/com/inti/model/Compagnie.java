@@ -2,6 +2,8 @@ package com.inti.model;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@MappedSuperclass 
+@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @Table(name = "a_compagnies")
+@DiscriminatorColumn(name="type_compagnie",discriminatorType = DiscriminatorType.INTEGER)
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Compagnie {
 
@@ -26,11 +29,11 @@ public class Compagnie {
 	private int id;
 	private String nom;
 	
-//	@OneToMany(mappedBy = "compagnie")
-//	private List<Trajet> listeTrajet;
-//	
-//	
-//	@OneToMany(mappedBy = "compagnie")
-//	private List<Experience> experience;
+	@OneToMany(mappedBy = "compagnie")
+	private List<Trajet> listeTrajet;
+	
+	
+	@OneToMany(mappedBy = "compagnie")
+	private List<Experience> experience;
 	
 }

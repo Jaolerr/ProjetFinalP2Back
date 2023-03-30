@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,11 +26,16 @@ public class Guide {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_guide;
 	private String pays;
-	private String ville;
+	
 
 	@ManyToMany
     @JoinTable(name="Utilisateur_Guide",
     joinColumns = @JoinColumn(name = "idG"), 
 	inverseJoinColumns = @JoinColumn(name = "idU"))
     private List<Utilisateur> listeUtilisateur;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="idv")
+	private Ville ville;
 }

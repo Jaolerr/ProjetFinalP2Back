@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity@Table
+@Entity@Table(name="a_villep2")
 @Data@NoArgsConstructor@AllArgsConstructor
 public class Ville {
 	@Id

@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 @Entity 
 @DiscriminatorValue("1")
 
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data @NoArgsConstructor 
 public class Administrateur extends Utilisateur {
 
 	
-	private int id_A;
+	
 }

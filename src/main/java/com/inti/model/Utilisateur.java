@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
-@DiscriminatorColumn(name="user_id",discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(name="user_discrim",discriminatorType = DiscriminatorType.INTEGER)
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {
 	

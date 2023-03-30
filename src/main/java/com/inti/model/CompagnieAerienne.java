@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table(name="Compagnieaeriennep2")
+@Entity @Table(name="a_compagnieaerienneP2")
 @Data @NoArgsConstructor @AllArgsConstructor
 public class CompagnieAerienne extends Compagnie {
 	

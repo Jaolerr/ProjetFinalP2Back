@@ -32,4 +32,10 @@ public class Guide {
     joinColumns = @JoinColumn(name = "idG"), 
 	inverseJoinColumns = @JoinColumn(name = "idU"))
     private List<Utilisateur> listeUtilisateur;
+	
+	@ManyToMany
+	@JoinTable(name="Guide_Ville",
+	joinColumns = @JoinColumn(name = "idG"),
+	inverseJoinColumns = @JoinColumn(name = "idV"))
+	private List<Ville> listeVille;
 }

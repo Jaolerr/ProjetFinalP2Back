@@ -16,6 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,14 +36,20 @@ public class Ville {
 	private Pays pays;
 	
 	
+	
 	@ManyToMany(mappedBy = "listVilleExp")
 	private List<Experience> listExp;
 	
+	
 	@OneToMany(mappedBy ="ville" )
+	@JsonManagedReference
 	private List<Guide> listGuide;
 	
+	
 	@OneToMany(mappedBy = "ville")
+	@JsonManagedReference
 	private List<Restaurant> listResto;
+	
 	
 	@OneToMany(mappedBy = "ville")
 	private List<Lieux> listLieux;

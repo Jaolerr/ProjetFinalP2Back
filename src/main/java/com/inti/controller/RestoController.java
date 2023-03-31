@@ -1,5 +1,6 @@
 package com.inti.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,13 @@ public class RestoController {
 		}
 		
 		return b;
+	}
+	
+	@GetMapping("rechercher/{idVille}")
+	public List<Restaurant> getRparVille(@PathVariable int idVille){
+		
+		return irr.getRestoByVille(idVille);
+		
 	}
 
 }

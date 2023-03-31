@@ -28,9 +28,18 @@ public class LieuxController {
 		return ilr.save(l);
 	}
 	@DeleteMapping("deleteLieux/{id}")
-	public void deleteLieux(@PathVariable("id")int id)
+	public boolean deleteLieux(@PathVariable("id")int id)
 	{
+		boolean b = false;
 		ilr.deleteById(id);
+		try {
+			ilr.findById(id);
+		}
+		catch (Exception e) {
+			b=true;
+		}
+		
+		return b;
 	}
 	@GetMapping("lieuxId/{id}")
 	public Lieux lieuxId(@PathVariable("id") int id)

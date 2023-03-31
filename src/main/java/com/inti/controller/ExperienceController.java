@@ -56,6 +56,9 @@ public class ExperienceController {
 	{
 		return ier.save(e);
 	}
-//	@GetMapping("experienceIdVille/{idVille}")
-
+	@GetMapping("experienceIdU/{idU}")
+	public List<Experience> getEparUtilisateur(@PathVariable int idU)
+	{
+		return ier.getExperienceByUtilisateur(idU);
+	}
 }

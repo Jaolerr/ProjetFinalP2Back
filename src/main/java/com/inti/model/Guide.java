@@ -36,7 +36,6 @@ public class Guide {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_guide;
-	private String pays;
 	private String Contenu;
 	
 

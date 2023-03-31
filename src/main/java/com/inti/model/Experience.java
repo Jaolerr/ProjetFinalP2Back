@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="a_experienceP2")
 @Data @AllArgsConstructor @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
+@JsonIgnoreProperties({"u","listeVilleExp", "compagnie"})
 public class Experience {
 	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)

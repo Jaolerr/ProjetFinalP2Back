@@ -37,6 +37,7 @@ public class Guide {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_guide;
 	private String pays;
+	private String Contenu;
 	
 
 	@ManyToMany

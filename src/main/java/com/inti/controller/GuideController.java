@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inti.model.Guide;
 import com.inti.repository.IGuideRepository;
 
-
 @RestController
 @RequestMapping("guide")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,31 +23,33 @@ public class GuideController {
 
 	@Autowired
 	IGuideRepository igr;
-	
+
 	@GetMapping("listeGuide")
-	public List<Guide> listeGuide()
-	{
+	public List<Guide> listeGuide() {
 		return igr.findAll();
 	}
+
 	@PostMapping("saveGuide")
 	public Guide saveGuide(@RequestBody Guide g) {
 		return igr.save(g);
 	}
+
 	@DeleteMapping("deleteGuide/{id}")
-	public void deleteGuide(@PathVariable("id")int id)
-	{
+	public void deleteGuide(@PathVariable("id") int id) {
 		igr.deleteById(id);
 	}
-	@GetMapping("guideId/{id}")
-	public Guide guideId(@PathVariable("id") int id)
-	{
-		return igr.getReferenceById(id);
+
+	@GetMapping("guideIdVille/{idVille}")
+	public List<Guide> getGparVille(@PathVariable int idVille){
+		
+		return igr.getGuideByVille(idVille);
 	}
+
 	@PutMapping("updateGuide")
-	public Guide updateGuide(@RequestBody Guide g)
-	{
+	public Guide updateGuide(@RequestBody Guide g) {
 		return igr.save(g);
 	}
+
 	
 	@GetMapping("findbyuser/{idU}")
 	public List<Guide> getGuideFromUser(@PathVariable Integer idU) {
@@ -57,4 +58,5 @@ public class GuideController {
 		System.out.println(igr.afficherGuide(idU).get(0).getVille());
 		return igr.afficherGuide(idU);
 	}
+
 }

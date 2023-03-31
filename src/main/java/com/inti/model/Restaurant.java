@@ -9,12 +9,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 import lombok.ToString.Exclude;
 
 @Entity @Table(name = "a_restaurantP2")
 @Data
+@JsonIgnoreProperties({"ville"})
 public class Restaurant {
 
 	@Id
@@ -26,7 +28,6 @@ public class Restaurant {
 	
 	@ManyToOne
 	@JoinColumn(name="id_ville")
-	@JsonBackReference
 	private Ville ville;
 	
 	

@@ -50,4 +50,11 @@ public class GuideController {
 		return igr.save(g);
 	}
 	
+	@GetMapping("findbyuser/{idU}")
+	public List<Guide> getGuideFromUser(@PathVariable Integer idU) {
+		System.out.println("hello");
+		System.out.println(idU);
+		System.out.println(igr.afficherGuide(idU).get(0).getVille());
+		return igr.afficherGuide(idU);
+	}
 }

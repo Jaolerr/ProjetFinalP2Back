@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 
 @Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @Table(name = "a_compagnies")
 @DiscriminatorColumn(name="type_compagnie",discriminatorType = DiscriminatorType.INTEGER)
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
+@JsonIgnoreProperties({"listeTrajet","experience"})
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Compagnie {
 

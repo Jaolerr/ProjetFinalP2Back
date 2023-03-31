@@ -1,6 +1,8 @@
 package com.inti.model;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
+
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,18 +16,25 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString.Exclude;
 
 
 
 @Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @Table(name = "a_users")
 @DiscriminatorColumn(name="user_discrim",discriminatorType = DiscriminatorType.INTEGER)
-@JsonIgnoreProperties({"listeExperience","listeUtilisateur"})
+@DiscriminatorValue("0")
+//@JsonIgnoreProperties({"listeExperience","listeUtilisateur"})
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property ="id_U")
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {
 	
@@ -41,9 +50,11 @@ public class Utilisateur {
 	protected boolean abonne_nl;
 	
 	@OneToMany(mappedBy = "u")
+	@Exclude
 	private List<Experience> listeExperience;
 	
 	@ManyToMany(mappedBy = "listeUtilisateur")
+	@Exclude
     private List<Guide> listeGuide;
     
 }

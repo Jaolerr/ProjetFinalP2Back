@@ -27,7 +27,7 @@ public class VilleController {
 		return ivr.findAll();
 	}
 	
-	@GetMapping("topVille")
+	@GetMapping("top")
 	public List<Ville> topVille(){
 		List<Ville> lv = ivr.findAll();
 		Collections.sort(lv,(o1,o2)->o1.getListGuide().size()-o2.getListGuide().size());

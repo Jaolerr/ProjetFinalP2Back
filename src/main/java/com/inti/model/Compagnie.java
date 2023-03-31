@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -32,7 +33,7 @@ public class Compagnie {
 	private int id;
 	private String nom;
 	
-	@OneToMany(mappedBy = "compagnie")
+	@ManyToMany(mappedBy = "listeCompagnie")
 	private List<Trajet> listeTrajet;
 	
 	

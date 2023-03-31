@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Guide;
 import com.inti.repository.IGuideRepository;
+import com.inti.repository.IUtilisateurRepository;
 
 @RestController
 @RequestMapping("guide")
@@ -23,6 +24,8 @@ public class GuideController {
 
 	@Autowired
 	IGuideRepository igr;
+	@Autowired
+	IUtilisateurRepository iur;
 
 	@GetMapping("listeGuide")
 	public List<Guide> listeGuide() {
@@ -53,10 +56,8 @@ public class GuideController {
 	
 	@GetMapping("findbyuser/{idU}")
 	public List<Guide> getGuideFromUser(@PathVariable Integer idU) {
-		System.out.println("hello");
-		System.out.println(idU);
-		System.out.println(igr.afficherGuide(idU).get(0).getVille());
-		return igr.afficherGuide(idU);
+		
+		return iur.findById(idU).get().getListeGuide();
 	}
 
 }

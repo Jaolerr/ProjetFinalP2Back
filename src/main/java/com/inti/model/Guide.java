@@ -7,20 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-
-
 import javax.persistence.JoinTable;
-
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
@@ -28,50 +22,36 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString.Exclude;
 
-@Entity@Table(name="a_villep2")
-@Data@NoArgsConstructor@AllArgsConstructor
-//@JsonIgnoreProperties({"pays","listExp","listGuide","listResto","listLieux"})
+@Entity
+@Table(name = "a_guideP2")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property ="id_ville")
-public class Ville {
+		  property ="id_guide")
+
+public class Guide {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_ville;
-	private String nom;
+	private int id_guide;
+	private String pays;
+	private String Contenu;
 	
-	@ManyToOne
-	@JoinColumn(name="id_pays")
+
+	@ManyToMany
+    @JoinTable(name="a_Utilisateur_Guide",
+    joinColumns = @JoinColumn(name = "idG"), 
+	inverseJoinColumns = @JoinColumn(name = "idU"))
 	@Exclude
-	private Pays pays;
+    private List<Utilisateur> listeUtilisateur;
 	
-	
-	
-	@ManyToMany(mappedBy = "listVilleExp")
-	@Exclude
-	private List<Experience> listExp;
-	
-	
-	@OneToMany(mappedBy ="ville" )
-	@Exclude
-	private List<Guide> listGuide;
-	
-	
-	@OneToMany(mappedBy = "ville")
-	@Exclude
-	private List<Restaurant> listResto;
-	
-	
-	@OneToMany(mappedBy = "ville")
-	@Exclude
-	private List<Lieux> listLieux;
 
 	
-	public Ville(String nom) {
-		super();
-		this.nom = nom;
-	}
-	
-	
+	@ManyToOne
+	@JoinColumn(name="idv")
+	@Exclude
+	private Ville ville;
 
 }

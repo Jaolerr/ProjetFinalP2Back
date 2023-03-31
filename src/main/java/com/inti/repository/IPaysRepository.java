@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.inti.model.Pays;
 @Repository
 public interface IPaysRepository extends JpaRepository<Pays, Integer>{
+	
+	
 
 }

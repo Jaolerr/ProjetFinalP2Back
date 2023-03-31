@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Guide;
-import com.inti.model.Utilisateur;
 import com.inti.repository.IGuideRepository;
 
 

@@ -11,3 +11,5 @@ Problème de sérialisation des données et mauvaise stratégie de récupératio
       
       
  On a commencé par récupérer les infos en faisant des requètes sur la table guide au lieu de passer par une requête qui récupère l'utilisateur pour ensuite accéder à l'attribut listGuide de l'utilisateur.
+ 
+ Tests des requêtes avec postman

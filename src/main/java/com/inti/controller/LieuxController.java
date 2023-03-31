@@ -3,17 +3,23 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Lieux;
+
 import com.inti.repository.ILieuxRepository;
 
-
+@RestController
+@RequestMapping("lieux")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LieuxController {
 
 	@Autowired
@@ -41,10 +47,10 @@ public class LieuxController {
 		
 		return b;
 	}
-	@GetMapping("lieuxId/{id}")
-	public Lieux lieuxId(@PathVariable("id") int id)
-	{
-		return ilr.getReferenceById(id);
+	@GetMapping("lieuxIdVille/{idVille}")
+	public List<Lieux> getLparVille(@PathVariable int idVille){
+		
+		return ilr.getLieuxByVille(idVille);
 	}
 	@PutMapping("updateLieux")
 	public Lieux updateLieux(@RequestBody Lieux l)

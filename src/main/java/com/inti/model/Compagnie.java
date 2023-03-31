@@ -15,12 +15,15 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @Table(name = "a_compagnies")
 @DiscriminatorColumn(name="type_compagnie",discriminatorType = DiscriminatorType.INTEGER)
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Compagnie {
 

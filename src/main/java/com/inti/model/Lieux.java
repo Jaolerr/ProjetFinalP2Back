@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity @Table (name="a_lieuxP2")
 @Data @NoArgsConstructor @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Lieux {
 
 	@Id
@@ -26,6 +28,6 @@ public class Lieux {
 	
 	@ManyToOne
 	@JoinColumn(name="id_ville")
-	@JsonBackReference
+	
 	private Ville ville;
 }

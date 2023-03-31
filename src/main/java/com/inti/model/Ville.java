@@ -16,7 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +27,7 @@ import lombok.NoArgsConstructor;
 
 @Entity@Table(name="a_villep2")
 @Data@NoArgsConstructor@AllArgsConstructor
+@JsonIgnoreProperties({"pays","listExp","listGuide","listResto","listLieux"})
 public class Ville {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,12 +45,10 @@ public class Ville {
 	
 	
 	@OneToMany(mappedBy ="ville" )
-	@JsonManagedReference
 	private List<Guide> listGuide;
 	
 	
 	@OneToMany(mappedBy = "ville")
-	@JsonManagedReference
 	private List<Restaurant> listResto;
 	
 	

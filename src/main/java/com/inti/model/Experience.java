@@ -17,6 +17,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +27,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="a_experienceP2")
 @Data @AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Experience {
 	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)

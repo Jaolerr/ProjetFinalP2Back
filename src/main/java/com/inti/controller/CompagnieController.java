@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inti.model.Compagnie;
 
 import com.inti.repository.ICompagnieRepository;
+import com.inti.repository.IExperienceRepository;
 import com.inti.repository.ITrajetRepository;
 
 @RestController
@@ -27,6 +28,8 @@ public class CompagnieController {
 	ICompagnieRepository icr;
 	@Autowired
 	ITrajetRepository itr;
+	@Autowired
+	IExperienceRepository ier;
 	
 	@GetMapping("listeCompagnie")
 	public List<Compagnie> listeCompagnie()
@@ -61,5 +64,10 @@ public class CompagnieController {
 	public List<Compagnie> getCparTrajet(@PathVariable int idT)
 	{
 		return itr.findById(idT).get().getListeCompagnie();
+	}
+	@GetMapping("compagnieIdE/{idE}")
+	public List<Compagnie> getCparExperience(@PathVariable int idE)
+	{
+		return ier.findById(idE).get().getListeCompagnie();
 	}
 }

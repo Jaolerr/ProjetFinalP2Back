@@ -37,7 +37,7 @@ public class Compagnie {
 	private List<Trajet> listeTrajet;
 	
 	
-	@OneToMany(mappedBy = "compagnie")
-	private List<Experience> experience;
+	@ManyToMany(mappedBy = "listeCompagnie")
+	private List<Experience> listeExperience;
 	
 }

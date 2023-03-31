@@ -46,9 +46,9 @@ public class Experience {
 	@JoinTable(name="a_exp_ville")
 	private List<Ville> listVilleExp;
 	
-	@ManyToOne(targetEntity = Compagnie.class)
-	@JoinColumn(name="idc")
-	private Compagnie compagnie;
+	@ManyToMany
+	@JoinTable(name="a_exp_compagnie")
+	private List<Compagnie> listeCompagnie;
 	
 	public Experience(String destination, String description, String photo, double depense, double rating_moyen) {
 		super();

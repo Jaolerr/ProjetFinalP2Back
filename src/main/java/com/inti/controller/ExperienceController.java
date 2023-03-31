@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Experience;
+import com.inti.repository.ICompagnieRepository;
 import com.inti.repository.IExperienceRepository;
 import com.inti.repository.IVilleRepository;
 
@@ -26,6 +27,8 @@ public class ExperienceController {
 	IExperienceRepository ier;
 	@Autowired
 	IVilleRepository ivr;
+	@Autowired 
+	ICompagnieRepository icr;
 	
 	@GetMapping("listeExperience")
 	public List<Experience> listeExperience()
@@ -68,5 +71,10 @@ public class ExperienceController {
 	public List<Experience> getEparVille(@PathVariable int idV)
 	{
 		return ivr.findById(idV).get().getListExp();
+	}
+	@GetMapping("experienceIdC/{idC}")
+	public List<Experience> getEparCompagnie(@PathVariable int idC)
+	{
+		return icr.findById(idC).get().getListeExperience();
 	}
 }

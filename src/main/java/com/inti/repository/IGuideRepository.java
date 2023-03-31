@@ -12,7 +12,7 @@ import com.inti.model.Guide;
 @Repository
 public interface IGuideRepository extends JpaRepository<Guide, Integer> {
 
-	@Query(value="Select * from a_guidep2 where a_guidep2.id_ville =?",nativeQuery = true)
+	@Query(value="Select * from a_guidep2 where a_guidep2.idv =?",nativeQuery = true)
 	List<Guide> getGuideByVille(Integer idV);
 	
 }

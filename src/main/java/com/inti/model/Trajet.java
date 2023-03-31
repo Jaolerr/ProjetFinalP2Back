@@ -1,10 +1,14 @@
 package com.inti.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -26,8 +30,8 @@ public class Trajet {
 	private String ville_arrivee;
 	private double prix_t;
 	
-	@ManyToOne
-	@JoinColumn(name="id_c")
-	private Compagnie compagnie;
+	@ManyToMany
+	@JoinTable(name="a_trajet_compagnie")
+	private List<Compagnie> listeCompagnie;
 	
 }

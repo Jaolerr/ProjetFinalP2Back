@@ -15,6 +15,4 @@ public interface IExperienceRepository extends JpaRepository<Experience, Integer
 	@Query(value="Select * from a_experiencep2 where a_experiencep2.idu =?",nativeQuery = true)
 	List<Experience> getExperienceByUtilisateur(Integer idu);
 	
-	@Query(value="Select * from a_experiencep2 where a_experiencep2.id_voyage in (select list_exp_id_voyage from a_exp_ville where list_ville_exp_id_ville=?)",nativeQuery = true)
-	List<Experience> getExperienceByVille(Integer list_ville_exp_id_ville);
 }

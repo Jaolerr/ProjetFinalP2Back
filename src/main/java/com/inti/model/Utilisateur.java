@@ -57,5 +57,19 @@ public class Utilisateur {
 	@ManyToMany(mappedBy = "listeUtilisateur", cascade = CascadeType.REMOVE) 
 	@Exclude
     private List<Guide> listeGuide;
+
+	public Utilisateur(String nom, String prenom, String mail, String telephone, String login, String mdp,
+			boolean abonne_nl) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mail = mail;
+		this.telephone = telephone;
+		this.login = login;
+		this.mdp = mdp;
+		this.abonne_nl = abonne_nl;
+	}
+	
+	
     
 }

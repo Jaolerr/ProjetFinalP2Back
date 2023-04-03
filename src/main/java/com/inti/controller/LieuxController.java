@@ -29,7 +29,7 @@ public class LieuxController {
 	public List<Lieux> listeLieux() {
 		return ilr.findAll();
 	}
-	@PostMapping("saveUtilisateur")
+	@PostMapping("saveLieux")
 	public Lieux saveLieux (@RequestBody Lieux l ) {
 		return ilr.save(l);
 	}

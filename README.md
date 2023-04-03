@@ -16,3 +16,6 @@ Problème de sérialisation des données et mauvaise stratégie de récupératio
  
  MODEL MCD : 
 ![MODEL MCD](https://user-images.githubusercontent.com/127097584/229434150-7b18bf08-87d3-4d9c-ae07-91577e733228.png)
+
+
+Creation des premiers tests d'insertion d'utilisateur + modification du service pour les compagnies pour bien différencier le type de compagnie. 

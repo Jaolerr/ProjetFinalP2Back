@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Compagnie;
-
+import com.inti.model.CompagnieAerienne;
+import com.inti.model.CompagnieMaritime;
 import com.inti.repository.ICompagnieRepository;
 import com.inti.repository.IExperienceRepository;
 import com.inti.repository.ITrajetRepository;
@@ -36,11 +37,24 @@ public class CompagnieController {
 	{
 		return icr.findAll();
 	}
-	@PostMapping("saveCompagnie")
-	public Compagnie saveCompagnie(@RequestBody Compagnie c)
-	{
+	@PostMapping("saveCompagnieA")
+	public Compagnie saveCompagnieA(@RequestBody CompagnieAerienne c )
+	{		
+		System.out.println(c);
+		
+		
 		return icr.save(c);
 	}
+	
+	@PostMapping("saveCompagnieM")
+	public Compagnie saveCompagnieM(@RequestBody CompagnieMaritime c )
+	{		
+		
+		System.out.println(c);
+		
+		return icr.save(c);
+	}
+	
 	@DeleteMapping("deleteCompagnie/{id}")
 	public boolean deleteCompagnie(@PathVariable("id") int id)
 	{

@@ -27,6 +27,10 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties({"listeTrajet","experience"})
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Compagnie {
+	
+	public Compagnie(String nom) {
+		this.nom=nom;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

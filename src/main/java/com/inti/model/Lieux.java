@@ -22,8 +22,8 @@ public class Lieux {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_l;
-	private double prix_l;
+	private int id_L;
+	private double prix_L;
 	private String nom_L;
 	
 	@ManyToOne

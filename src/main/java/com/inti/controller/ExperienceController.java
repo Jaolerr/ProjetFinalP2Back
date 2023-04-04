@@ -40,8 +40,6 @@ public class ExperienceController {
 	@PostMapping("saveExperience")
 	public Experience saveExperience(@RequestBody Experience e)
 	{
-		System.out.println(e);
-		System.out.println("un message pour vois si ca marche");
 		return ier.save(e);
 	}
 	

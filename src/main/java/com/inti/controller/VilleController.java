@@ -1,18 +1,28 @@
 package com.inti.controller;
 
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inti.model.Lieux;
+
 import com.inti.model.Ville;
+
 import com.inti.repository.IVilleRepository;
 
 @RestController
@@ -28,6 +38,21 @@ public class VilleController {
 		return ivr.findAll();
 	}
 	
+	@DeleteMapping("deleteVille/{id}")
+	public boolean deleteVille(@PathVariable("id")int id)
+	{
+		boolean b = false;
+		ivr.deleteById(id);
+		try {
+			ivr.findById(id);
+		}
+		catch (Exception e) {
+			b=true;
+		}
+		
+		return b;
+	}
+	
 	@GetMapping("top")
 	public List<Ville> topVille(){
 		List<Ville> lv = ivr.findAll();
@@ -41,8 +66,23 @@ public class VilleController {
 		return ivr.getVilleByPays(idPays);
 			
 	}
+	
+	
+	@PostMapping("saveVille")
+	public Ville saveVille(@RequestBody Ville v)
+	{
+	   
+		return ivr.save(v);
 	}
 	
+	
+	@GetMapping("villeId/{id}")
+	public Ville villeId(@PathVariable("id_ville") int id_ville)
+	{
+		return ivr.getReferenceById(id_ville);
+	}
+	
+}
 	
 
 

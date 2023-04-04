@@ -44,6 +44,7 @@ public class utilisateurController {
 	{
 		return iur.getReferenceById(id);
 	}
+	
 	@PutMapping("updateUtilisateur")
 	public Utilisateur updateUtilisateur(@RequestBody Utilisateur u)
 	{

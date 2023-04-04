@@ -79,9 +79,11 @@ public class CompagnieController {
 	{
 		return itr.findById(idT).get().getListeCompagnie();
 	}
+	
 	@GetMapping("compagnieIdE/{idE}")
 	public List<Compagnie> getCparExperience(@PathVariable int idE)
 	{
 		return ier.findById(idE).get().getListeCompagnie();
 	}
+		
 }

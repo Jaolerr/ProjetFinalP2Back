@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Experience;
+import com.inti.model.Utilisateur;
 import com.inti.repository.ICompagnieRepository;
 import com.inti.repository.IExperienceRepository;
 import com.inti.repository.IVilleRepository;
@@ -62,6 +63,14 @@ public class ExperienceController {
 	{
 		return ier.save(e);
 	}
+	
+	
+	@GetMapping("experienceId/{id}")
+	public Experience experienceId(@PathVariable("id") int id)
+	{
+		return ier.getExperienceById(id);
+	}
+	
 	@GetMapping("experienceIdU/{idU}")
 	public List<Experience> getEparUtilisateur(@PathVariable int idU)
 	{

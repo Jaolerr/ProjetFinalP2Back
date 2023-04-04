@@ -30,9 +30,10 @@ public class utilisateurController {
 		return iur.findAll();
 	}
 	@PostMapping("saveUtilisateur")
-	public Utilisateur saveUtilisateur (@RequestBody Utilisateur u ) {
+	public Utilisateur saveUtilisateur(@RequestBody Utilisateur u ) { 		//requestbody: comme le modeleAttribute
 		return iur.save(u);
 	}
+	
 	@DeleteMapping("deleteUtilisateur/{id}")
 	public void deleteUtilisateur(@PathVariable("id")int id)
 	{

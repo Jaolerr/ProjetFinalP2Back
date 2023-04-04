@@ -22,7 +22,7 @@ public class Restaurant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_r;
-	private double prix_l;
+	private double prix_l; 
 	private String nom;
 	private String adresse;
 	

@@ -6,8 +6,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +29,25 @@ public class VilleController {
 	public List<Ville> listeVille()
 	{
 		return ivr.findAll();
+	}
+	@PostMapping("saveVille")
+	public Ville saveVille(@RequestBody Ville v)
+	{
+		return ivr.save(v);
+	}
+	@DeleteMapping("deleteVille/{id}")
+	public boolean deleteVille(@PathVariable("id")int id)
+	{
+		boolean b = false;
+		ivr.deleteById(id);
+		try {
+			ivr.findById(id);
+		}
+		catch (Exception e) {
+			b=true;
+		}
+		
+		return b;
 	}
 	
 	@GetMapping("top")

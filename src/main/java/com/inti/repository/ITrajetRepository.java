@@ -3,10 +3,9 @@ package com.inti.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inti.model.Pays;
+import com.inti.model.Trajet;
+
 @Repository
-public interface IPaysRepository extends JpaRepository<Pays, Integer>{
-	
-	
+public interface ITrajetRepository extends JpaRepository<Trajet, Integer> {
 
 }

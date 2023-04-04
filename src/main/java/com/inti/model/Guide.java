@@ -3,6 +3,7 @@ package com.inti.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,11 +37,10 @@ public class Guide {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_guide;
-	private String pays;
 	private String Contenu;
 	
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="a_Utilisateur_Guide",
     joinColumns = @JoinColumn(name = "idG"), 
 	inverseJoinColumns = @JoinColumn(name = "idU"))
@@ -49,7 +49,7 @@ public class Guide {
 	
 
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idv")
 	@Exclude
 	private Ville ville;

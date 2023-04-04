@@ -1,10 +1,12 @@
 package com.inti.model;
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,12 +31,11 @@ import lombok.ToString.Exclude;
 
 
 @Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @Table(name = "a_users")
+
 @DiscriminatorColumn(name="user_discrim",discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue("0")
 //@JsonIgnoreProperties({"listeExperience","listeUtilisateur"})
-@JsonIdentityInfo(
-		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property ="id_U")
+
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {
 	
@@ -49,12 +50,26 @@ public class Utilisateur {
 	protected String mdp;
 	protected boolean abonne_nl;
 	
-	@OneToMany(mappedBy = "u")
+	@OneToMany(mappedBy = "u", cascade = CascadeType.REMOVE,orphanRemoval =true)
 	@Exclude
 	private List<Experience> listeExperience;
 	
-	@ManyToMany(mappedBy = "listeUtilisateur")
+	@ManyToMany(mappedBy = "listeUtilisateur", cascade = CascadeType.REMOVE) 
 	@Exclude
     private List<Guide> listeGuide;
+
+	public Utilisateur(String nom, String prenom, String mail, String telephone, String login, String mdp,
+			boolean abonne_nl) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mail = mail;
+		this.telephone = telephone;
+		this.login = login;
+		this.mdp = mdp;
+		this.abonne_nl = abonne_nl;
+	}
+	
+	
     
 }

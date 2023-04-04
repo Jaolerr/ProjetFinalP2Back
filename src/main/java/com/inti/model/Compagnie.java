@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,17 +27,21 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties({"listeTrajet","experience"})
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Compagnie {
+	
+	public Compagnie(String nom) {
+		this.nom=nom;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
 	
-	@OneToMany(mappedBy = "compagnie")
+	@ManyToMany(mappedBy = "listeCompagnie")
 	private List<Trajet> listeTrajet;
 	
 	
-	@OneToMany(mappedBy = "compagnie")
-	private List<Experience> experience;
+	@ManyToMany(mappedBy = "listeCompagnie")
+	private List<Experience> listeExperience;
 	
 }

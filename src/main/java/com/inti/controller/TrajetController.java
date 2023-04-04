@@ -13,33 +13,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inti.model.Lieux;
 
-import com.inti.repository.ILieuxRepository;
+import com.inti.model.Trajet;
+import com.inti.repository.ICompagnieRepository;
+import com.inti.repository.ITrajetRepository;
 
 @RestController
-@RequestMapping("lieux")
+@RequestMapping("trajet")
 @CrossOrigin(origins = "http://localhost:4200")
-public class LieuxController {
+public class TrajetController {
 
 	@Autowired
-	ILieuxRepository ilr;
+	ITrajetRepository itr;
+	@Autowired 
+	ICompagnieRepository icr;
 	
-	@GetMapping("listeLieux")
-	public List<Lieux> listeLieux() {
-		return ilr.findAll();
+	@GetMapping("listeTrajet")
+	public List<Trajet> listeTrajet()
+	{
+		return itr.findAll();
 	}
-	@PostMapping("saveLieux")
-	public Lieux saveLieux (@RequestBody Lieux l ) {
-		return ilr.save(l);
+	@PostMapping("saveTrajet")
+	public Trajet saveTrajet (@RequestBody Trajet t)
+	{
+		return itr.save(t);
 	}
-	@DeleteMapping("deleteLieux/{id}")
-	public boolean deleteLieux(@PathVariable("id")int id)
+	@DeleteMapping("deleteTrajet/{id}")
+	public boolean deleteTrajet (@PathVariable("id") int id)
 	{
 		boolean b = false;
-		ilr.deleteById(id);
+		itr.deleteById(id);
 		try {
-			ilr.findById(id);
+			itr.findById(id);
 		}
 		catch (Exception e) {
 			b=true;
@@ -47,15 +52,14 @@ public class LieuxController {
 		
 		return b;
 	}
-	@GetMapping("lieuxIdVille/{idVille}")
-	public List<Lieux> getLparVille(@PathVariable int idVille){
-		
-		return ilr.getLieuxByVille(idVille);
-	}
-	@PutMapping("updateLieux")
-	public Lieux updateLieux(@RequestBody Lieux l)
+	@PutMapping("updateTrajet")
+	public Trajet updateTrajet(@RequestBody Trajet t)
 	{
-		return ilr.save(l);
+		return itr.save(t);
 	}
-	
+	@GetMapping("trajetIdC/{idC}")
+	public List<Trajet> getTparCompagnie(@PathVariable int idC)
+	{
+		return icr.findById(idC).get().getListeTrajet();
+	}
 }

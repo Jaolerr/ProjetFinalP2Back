@@ -36,6 +36,8 @@ public class TrajetController {
 	@PostMapping("saveTrajet")
 	public Trajet saveTrajet (@RequestBody Trajet t)
 	{
+		
+		System.out.println(t);
 		return itr.save(t);
 	}
 	@DeleteMapping("deleteTrajet/{id}")

@@ -2,6 +2,7 @@ package com.inti.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="a_trajetP2")
 @Data @AllArgsConstructor @NoArgsConstructor
-@JsonIgnoreProperties({"compagnie"})
 public class Trajet {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class Trajet {
 	private String ville_arrivee;
 	private double prix_t;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="a_trajet_compagnie")
 	private List<Compagnie> listeCompagnie;
 	

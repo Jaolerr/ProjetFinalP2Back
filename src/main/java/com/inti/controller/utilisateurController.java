@@ -50,4 +50,10 @@ public class utilisateurController {
 	{
 		return iur.save(u);
 	}
+	
+	@GetMapping("getuserbylogin/{login}")
+	public Utilisateur getuser(@PathVariable("login") String login) {
+		
+		return iur.getUserbyLogin(login);
+	}
 }

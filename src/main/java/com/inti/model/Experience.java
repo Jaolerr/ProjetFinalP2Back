@@ -3,6 +3,7 @@ package com.inti.model;
 import java.util.List;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="a_experienceP2")
 @Data @AllArgsConstructor @NoArgsConstructor
-@JsonIgnoreProperties({"u","listeVilleExp", "compagnie"})
+@JsonIgnoreProperties({"listeVilleExp", "compagnie"})
 public class Experience {
 	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +40,7 @@ public class Experience {
 	private double depense;
 	private double rating_moyen;
 	
-	@ManyToOne(targetEntity = Utilisateur.class)
+	@ManyToOne(targetEntity = Utilisateur.class,cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="idu")
 	private Utilisateur u;
 	

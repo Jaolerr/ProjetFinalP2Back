@@ -1,6 +1,6 @@
 # ProjetFinalP2Back
-![diagrammeClassBestTrip(v1 2)](https://user-images.githubusercontent.com/127097635/228828717-df6b935d-cd22-4149-8f78-b41b87fb065d.jpg)
 
+![diagrammeClassBestTrip(v2)](https://user-images.githubusercontent.com/127097635/230321030-b1ab2ec3-b34e-4b07-856a-4d3e6a1ad1be.jpg)
 
 Creation des classes repository, controller classiquement.
 

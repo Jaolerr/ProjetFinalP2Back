@@ -2,6 +2,7 @@ package com.inti.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ import lombok.ToString.Exclude;
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
 		  property ="id_guide")
+//@JsonIgnoreProperties({"hibernateLazyInitializer"})
 
 public class Guide {
 	
@@ -40,7 +42,7 @@ public class Guide {
 	private String Contenu;
 	
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name="a_Utilisateur_Guide",
     joinColumns = @JoinColumn(name = "idG"), 
 	inverseJoinColumns = @JoinColumn(name = "idU"))
@@ -49,7 +51,7 @@ public class Guide {
 	
 
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="idv")
 	@Exclude
 	private Ville ville;

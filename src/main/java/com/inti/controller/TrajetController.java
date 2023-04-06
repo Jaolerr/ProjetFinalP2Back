@@ -64,4 +64,10 @@ public class TrajetController {
 	{
 		return icr.findById(idC).get().getListeTrajet();
 	}
+	
+	@GetMapping("trajetParExp/{id_voyage}")
+	public Trajet getTrajetByExp(@PathVariable int id_voyage)
+	{
+		return itr.getTrajetByExp(id_voyage);
+	}
 }

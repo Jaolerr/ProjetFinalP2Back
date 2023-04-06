@@ -1,6 +1,7 @@
 package com.inti.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,6 @@ import lombok.ToString.Exclude;
 
 @Entity @Table(name = "a_restaurantP2")
 @Data
-@JsonIgnoreProperties({"ville"})
 public class Restaurant {
 
 	@Id
@@ -26,8 +26,9 @@ public class Restaurant {
 	private String nom;
 	private String adresse;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_ville")
+	@Exclude
 	private Ville ville;
 	
 	

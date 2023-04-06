@@ -40,7 +40,7 @@ public class Experience {
 	private double depense;
 	private double rating_moyen;
 	
-	@ManyToOne(targetEntity = Utilisateur.class,cascade = CascadeType.ALL)
+	@ManyToOne(targetEntity = Utilisateur.class,cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name="idu")
 	private Utilisateur u;
 	

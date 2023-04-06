@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.model.Experience;
 import com.inti.model.Restaurant;
 import com.inti.repository.IRestaurantRepo;
 
@@ -21,6 +22,7 @@ import com.inti.repository.IRestaurantRepo;
 @RequestMapping("restaurants")
 @CrossOrigin(origins = "http://localhost:4200")
 public class RestoController {
+	
 	@Autowired IRestaurantRepo irr;
 	
 	@GetMapping("afficher")
@@ -56,6 +58,15 @@ public class RestoController {
 		
 		return b;
 	}
+	
+
+	@GetMapping("restaurantId/{id}")
+	public Experience experienceId(@PathVariable("id") int id)
+	{	
+		System.out.println(id);
+		return irr.getRestaurantById(id);
+	}
+	
 	
 	@GetMapping("rechercher/{idVille}")
 	public List<Restaurant> getRparVille(@PathVariable int idVille){

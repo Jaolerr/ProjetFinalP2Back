@@ -67,7 +67,8 @@ public class ExperienceController {
 	
 	@GetMapping("experienceId/{id}")
 	public Experience experienceId(@PathVariable("id") int id)
-	{
+	{	
+		System.out.println(id);
 		return ier.getExperienceById(id);
 	}
 	
@@ -86,4 +87,5 @@ public class ExperienceController {
 	{
 		return icr.findById(idC).get().getListeExperience();
 	}
+	
 }

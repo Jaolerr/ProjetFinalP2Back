@@ -34,8 +34,10 @@ import lombok.ToString.Exclude;
 
 @DiscriminatorColumn(name="user_discrim",discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue("0")
-@JsonIgnoreProperties({"listeExperience","listeUtilisateur"})
-
+//@JsonIgnoreProperties({"listeExperience","listeUtilisateur"})
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property ="id_U")
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {
 	

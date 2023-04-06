@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inti.model.Compagnie;
 import com.inti.model.CompagnieAerienne;
 import com.inti.model.CompagnieMaritime;
+import com.inti.model.Trajet;
 import com.inti.repository.ICompagnieRepository;
 import com.inti.repository.IExperienceRepository;
 import com.inti.repository.ITrajetRepository;
@@ -86,4 +87,10 @@ public class CompagnieController {
 		return ier.findById(idE).get().getListeCompagnie();
 	}
 		
+
+	@GetMapping("compagnieParExp/{id_voyage}")
+	public Compagnie getCompagnieByExp(@PathVariable int id_voyage)
+	{
+		return icr.getCompagnieByExp(id_voyage);
+	}
 }

@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Guide;
+import com.inti.model.Ville;
 import com.inti.repository.IGuideRepository;
 import com.inti.repository.IUtilisateurRepository;
+import com.inti.repository.IVilleRepository;
 
 @RestController
 @RequestMapping("guide")
@@ -26,6 +29,8 @@ public class GuideController {
 	IGuideRepository igr;
 	@Autowired
 	IUtilisateurRepository iur;
+	@Autowired
+	IVilleRepository ivr;
 
 	@GetMapping("listeGuide")
 	public List<Guide> listeGuide() {
@@ -34,6 +39,8 @@ public class GuideController {
 
 	@PostMapping("saveGuide")
 	public Guide saveGuide(@RequestBody Guide g) {
+//		System.out.println(g.getVille().getId_ville());
+		
 		return igr.save(g);
 	}
 

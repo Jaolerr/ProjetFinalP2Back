@@ -17,6 +17,7 @@ import com.inti.model.Experience;
 import com.inti.model.Utilisateur;
 import com.inti.repository.ICompagnieRepository;
 import com.inti.repository.IExperienceRepository;
+import com.inti.repository.IUtilisateurRepository;
 import com.inti.repository.IVilleRepository;
 
 @RestController
@@ -31,6 +32,9 @@ public class ExperienceController {
 	@Autowired 
 	ICompagnieRepository icr;
 	
+	@Autowired
+	IUtilisateurRepository iur;
+	
 	@GetMapping("listeExperience")
 	public List<Experience> listeExperience()
 	{
@@ -40,7 +44,15 @@ public class ExperienceController {
 	@PostMapping("saveExperience")
 	public Experience saveExperience(@RequestBody Experience e)
 	{
+		System.out.println(e);
+		System.out.println(e.getU());
+		
+		e.setU(iur.findById(e.getU().getId_U()).get());
+
 		return ier.save(e);
+				
+		
+		
 	}
 	
 	@DeleteMapping("deleteExperience/{id}")

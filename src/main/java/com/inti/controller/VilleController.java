@@ -63,8 +63,7 @@ public class VilleController {
 	@GetMapping("villeIdPays/{idPays}")
 	public List<Ville> getVparPays(@PathVariable int idPays){
 		
-		return ivr.getVilleByPays(idPays);
-			
+		return ivr.getVilleByPays(idPays);	
 	}
 	
 	

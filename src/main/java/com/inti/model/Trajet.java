@@ -38,4 +38,7 @@ public class Trajet {
 	@JoinTable(name="a_trajet_compagnie")
 	private List<Compagnie> listeCompagnie;
 	
+	@ManyToMany(mappedBy = "listTrajetExp", cascade = CascadeType.MERGE)
+	private List<Experience> listeExperience;
+	
 }

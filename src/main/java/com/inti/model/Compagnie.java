@@ -43,5 +43,4 @@ public class Compagnie {
 	
 	@ManyToMany(mappedBy = "listeCompagnie")
 	private List<Experience> listeExperience;
-	
 }

@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -38,7 +39,9 @@ public class Trajet {
 	@JoinTable(name="a_trajet_compagnie")
 	private List<Compagnie> listeCompagnie;
 	
-	@ManyToMany(mappedBy = "listTrajetExp", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "trajet", cascade = CascadeType.MERGE)
 	private List<Experience> listeExperience;
+	
+	
 	
 }

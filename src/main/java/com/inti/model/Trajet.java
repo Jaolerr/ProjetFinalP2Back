@@ -26,8 +26,12 @@ public class Trajet {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_t;
-	private String ville_depart;
-	private String ville_arrivee;
+	@ManyToOne 
+	@JoinColumn(name="idVD")
+	private Ville ville_depart;
+	@ManyToOne 
+	@JoinColumn(name="idVA")
+	private Ville ville_arrivee;
 	private double prix_t;
 	
 	@ManyToMany(cascade = CascadeType.MERGE)

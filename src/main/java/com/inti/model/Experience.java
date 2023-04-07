@@ -43,13 +43,13 @@ public class Experience {
 	@JoinColumn(name="idu")
 	private Utilisateur u;
 	
-	@ManyToMany
-	@JoinTable(name="a_exp_ville")
-	private List<Ville> listVilleExp;
+	@ManyToOne
+	@JoinColumn (name="id_ville")
+	private Ville VilleExp;
 	
-	@ManyToMany
-	@JoinTable(name="a_exp_trajet")
-	private List<Trajet> listTrajetExp;
+	@ManyToOne
+	@JoinColumn(name="id_trajet")
+	private Trajet trajet;
 	
 	@ManyToMany
 	@JoinTable(name="a_exp_lieux")
@@ -63,10 +63,10 @@ public class Experience {
 	@JoinTable(name="a_exp_compagnie")
 	private List<Compagnie> listeCompagnie;
 	
-	
-	public Experience( String description, String photo, double depense, double rating_moyen) {
+
+	public Experience(String description, String photo, double depense, double rating_moyen) {
 		super();
-	
+
 		this.description = description;
 		this.photo = photo;
 		this.depense = depense;

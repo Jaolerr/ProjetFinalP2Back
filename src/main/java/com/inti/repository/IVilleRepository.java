@@ -14,4 +14,6 @@ public interface IVilleRepository extends JpaRepository<Ville, Integer>{
 
 	@Query(value="Select * from a_villep2 where a_villep2.id_pays =?",nativeQuery = true)
 	List<Ville> getVilleByPays(Integer id_pays);
+	
+	
 }

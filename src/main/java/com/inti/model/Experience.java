@@ -49,8 +49,21 @@ public class Experience {
 	private List<Ville> listVilleExp;
 	
 	@ManyToMany
+	@JoinTable(name="a_exp_trajet")
+	private List<Trajet> listTrajetExp;
+	
+	@ManyToMany
+	@JoinTable(name="a_exp_lieux")
+	private List<Lieux> listLieuxExp;
+	
+	@ManyToMany
+	@JoinTable(name="a_exp_restaurant")
+	private List<Restaurant> listRestaurantexp;
+	
+	@ManyToMany
 	@JoinTable(name="a_exp_compagnie")
 	private List<Compagnie> listeCompagnie;
+	
 	
 	public Experience(String destination, String description, String photo, double depense, double rating_moyen) {
 		super();

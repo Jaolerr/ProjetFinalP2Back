@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -26,12 +27,21 @@ public class Trajet {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_t;
-	private String ville_depart;
-	private String ville_arrivee;
+	@ManyToOne 
+	@JoinColumn(name="idVD")
+	private Ville ville_depart;
+	@ManyToOne 
+	@JoinColumn(name="idVA")
+	private Ville ville_arrivee;
 	private double prix_t;
 	
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="a_trajet_compagnie")
 	private List<Compagnie> listeCompagnie;
+	
+	@OneToMany(mappedBy = "trajet", cascade = CascadeType.MERGE)
+	private List<Experience> listeExperience;
+	
+	
 	
 }

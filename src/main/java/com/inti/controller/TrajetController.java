@@ -70,4 +70,6 @@ public class TrajetController {
 	{
 		return itr.getTrajetByExp(id_voyage);
 	}
+	
+	
 }

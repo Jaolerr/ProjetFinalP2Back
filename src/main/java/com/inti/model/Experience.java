@@ -34,7 +34,6 @@ public class Experience {
 	
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_voyage;
-	private String destination;
 	private String description;
 	private String photo;
 	private double depense;
@@ -44,17 +43,29 @@ public class Experience {
 	@JoinColumn(name="idu")
 	private Utilisateur u;
 	
+	@ManyToOne
+	@JoinColumn (name="id_ville")
+	private Ville VilleExp;
+	
+	@ManyToOne
+	@JoinColumn(name="id_trajet")
+	private Trajet trajet;
+	
 	@ManyToMany
-	@JoinTable(name="a_exp_ville")
-	private List<Ville> listVilleExp;
+	@JoinTable(name="a_exp_lieux")
+	private List<Lieux> listLieuxExp;
+	
+	@ManyToMany
+	@JoinTable(name="a_exp_restaurant")
+	private List<Restaurant> listRestaurantexp;
 	
 	@ManyToMany
 	@JoinTable(name="a_exp_compagnie")
 	private List<Compagnie> listeCompagnie;
 	
-	public Experience(String destination, String description, String photo, double depense, double rating_moyen) {
+	
+	public Experience(String description, String photo, double depense, double rating_moyen) {
 		super();
-		this.destination = destination;
 		this.description = description;
 		this.photo = photo;
 		this.depense = depense;

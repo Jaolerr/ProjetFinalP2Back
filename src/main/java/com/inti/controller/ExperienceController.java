@@ -80,8 +80,9 @@ public class ExperienceController {
 	
 	@GetMapping("experienceId/{id}")
 	public Experience experienceId(@PathVariable("id") int id)
-	{
-		
+
+	{	
+		System.out.println(id);
 		return ier.getExperienceById(id);
 	}
 	
@@ -95,14 +96,17 @@ public class ExperienceController {
 	{
 		return ivr.findById(idV).get().getListExp();
 	}
+
 	@GetMapping("VilleExperience/{idE}")
 	public Ville getVbyExp(@PathVariable int idE)
 	{
-		return ivr.findById(ier.findById(idE).get().g)
+		return ivr.getReferenceById(ier.findById(idE).get().getVilleExp().getId_ville());
 	}
+
 	@GetMapping("experienceIdC/{idC}")
 	public List<Experience> getEparCompagnie(@PathVariable int idC)
 	{
 		return icr.findById(idC).get().getListeExperience();
 	}
+	
 }

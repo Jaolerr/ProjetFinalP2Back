@@ -34,6 +34,7 @@ import lombok.ToString.Exclude;
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
 		  property ="id_ville")
+
 public class Ville {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +48,7 @@ public class Ville {
 	
 	
 	
-	@ManyToMany(mappedBy = "listVilleExp")
+	@ManyToMany(mappedBy = "VilleExp")
 	@Exclude
 	private List<Experience> listExp;
 	

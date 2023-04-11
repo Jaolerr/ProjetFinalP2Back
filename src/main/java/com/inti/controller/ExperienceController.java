@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Experience;
 import com.inti.model.Utilisateur;
+import com.inti.model.Ville;
 import com.inti.repository.ICompagnieRepository;
 import com.inti.repository.IExperienceRepository;
 import com.inti.repository.IUtilisateurRepository;
@@ -93,6 +94,11 @@ public class ExperienceController {
 	public List<Experience> getEparVille(@PathVariable int idV)
 	{
 		return ivr.findById(idV).get().getListExp();
+	}
+	@GetMapping("VilleExperience/{idE}")
+	public Ville getVbyExp(@PathVariable int idE)
+	{
+		return ivr.findById(ier.findById(idE).get().g)
 	}
 	@GetMapping("experienceIdC/{idC}")
 	public List<Experience> getEparCompagnie(@PathVariable int idC)

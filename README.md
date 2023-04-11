@@ -7,10 +7,10 @@ Voici le diagramme de classe de notre projet:
  MODEL MCD : 
 ![MODEL MCD](https://user-images.githubusercontent.com/127097584/229434150-7b18bf08-87d3-4d9c-ae07-91577e733228.png)
 
-##Resumé
+# Resumé
 Dans un premier temps nous avons réaliser la creation des classes répository, controller classiquement.
 
-##Problème rencontré
+# Problème rencontré
 Problème de sérialisation des données et mauvaise stratégie de récupération :
   Pour récupérer les guides d'un utilisateur par exemple, il y'a plusieurs facons:
       -Faire une requête directement

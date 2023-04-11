@@ -1,8 +1,8 @@
 # ProjetFinalP2Back
-![diagrammeClassBestTrip(v1 2)](https://user-images.githubusercontent.com/127097635/228828717-df6b935d-cd22-4149-8f78-b41b87fb065d.jpg)
+[diagrammeClassBestTrip(v2)](https://user-images.githubusercontent.com/127097635/230321365-7611da73-e59b-40f3-8155-b99365678739.jpg)
 
 
-Creation des classes repository, controller classiquement.
+Creation des classes r!epository, controller classiquement.
 
 Problème de sérialisation des données et mauvaise stratégie de récupération :
   Pour récupérer les guides d'un utilisateur par exemple, il y'a plusieurs facons:

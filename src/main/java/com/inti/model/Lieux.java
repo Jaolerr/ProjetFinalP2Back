@@ -34,6 +34,6 @@ public class Lieux {
 	
 	private Ville ville;
 	
-	@ManyToMany(mappedBy = "listLieuxExp")
+	@ManyToMany(mappedBy = "listeLieux")
 	private List<Experience> listeExperience;
 }

@@ -53,11 +53,11 @@ public class Experience {
 	
 	@ManyToMany
 	@JoinTable(name="a_exp_lieux")
-	private List<Lieux> listLieuxExp;
+	private List<Lieux> listeLieux;
 	
 	@ManyToMany
 	@JoinTable(name="a_exp_restaurant")
-	private List<Restaurant> listRestaurantexp;
+	private List<Restaurant> listeResto;
 	
 	@ManyToMany
 	@JoinTable(name="a_exp_compagnie")

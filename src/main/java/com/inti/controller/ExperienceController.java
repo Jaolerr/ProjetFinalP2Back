@@ -48,7 +48,7 @@ public class ExperienceController {
 		System.out.println(e);
 		System.out.println(e.getU());
 		
-		e.setU(iur.findById(e.getU().getId_U()).get());
+		//e.setU(iur.findById(e.getU().getId_U()).get());
 
 		return ier.save(e);
 				

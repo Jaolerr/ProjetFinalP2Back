@@ -32,7 +32,7 @@ import lombok.ToString.Exclude;
 
 @Entity@Table(name="a_villep2")
 @Data@NoArgsConstructor@AllArgsConstructor
-//@JsonIgnoreProperties({"pays","listExp","listGuide","listResto","listLieux"})
+@JsonIgnoreProperties({"pays","listExp","listGuide","listResto","listLieux"})
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
 		  property ="id_ville")
@@ -50,7 +50,7 @@ public class Ville {
 	
 	
 	
-	@ManyToMany(mappedBy = "VilleExp")
+	@ManyToMany(mappedBy = "Ville")
 	@Exclude
 	private List<Experience> listExp;
 	

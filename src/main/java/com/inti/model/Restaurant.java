@@ -2,6 +2,7 @@ package com.inti.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,11 +13,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 import lombok.ToString.Exclude;
 
 @Entity @Table(name = "a_restaurantP2")
 @Data
+@JsonIgnoreProperties("listeExperience")
 public class Restaurant {
 
 	@Id
@@ -26,12 +30,12 @@ public class Restaurant {
 	private String nom;
 	private String adresse;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="id_ville")
 	@Exclude
 	private Ville ville;
 	
-	@ManyToMany(mappedBy = "listRestaurantexp")
+	@ManyToMany(mappedBy = "listeResto")
 	private List<Experience> listeExperience;
 	
 	

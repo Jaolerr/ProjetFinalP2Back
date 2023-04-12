@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 @Entity @Table (name="a_lieuxP2")
 @Data @NoArgsConstructor @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","listeExperience"})
 public class Lieux {
 
 	@Id

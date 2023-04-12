@@ -48,7 +48,7 @@ public class Ville {
 	
 	
 	
-	@ManyToMany(mappedBy = "VilleExp")
+	@ManyToMany(mappedBy = "Ville")
 	@Exclude
 	private List<Experience> listExp;
 	

@@ -43,9 +43,9 @@ public class Experience {
 	@JoinColumn(name="idu")
 	private Utilisateur u;
 	
-	@ManyToOne(cascade ={CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH} )
+	@ManyToOne(cascade ={CascadeType.MERGE} )
 	@JoinColumn (name="id_ville")
-	private Ville VilleExp;
+	private Ville Ville;
 	
 	@ManyToOne(cascade ={CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH} )
 	@JoinColumn(name="id_trajet")

@@ -5,7 +5,7 @@ Voici le diagramme de classe de notre projet:
 
 Voici le diagramme de classe de notre projet:
  MODEL MCD : 
-![MODEL MCD](https://user-images.githubusercontent.com/127097584/229434150-7b18bf08-87d3-4d9c-ae07-91577e733228.png)
+![MODEL MCD](https://user-images.githubusercontent.com/127097584/231392666-e41ea20c-2958-443b-aeda-c145eb7c103b.png)
 
 # Resumé
 Dans un premier temps nous avons réaliser la creation des classes répository, controller classiquement.

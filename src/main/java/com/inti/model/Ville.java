@@ -30,7 +30,7 @@ import lombok.ToString.Exclude;
 
 @Entity@Table(name="a_villep2")
 @Data@NoArgsConstructor@AllArgsConstructor
-//@JsonIgnoreProperties({"pays","listExp","listGuide","listResto","listLieux"})
+@JsonIgnoreProperties({"pays","listExp","listGuide","listResto","listLieux"})
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
 		  property ="id_ville")

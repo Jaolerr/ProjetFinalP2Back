@@ -98,9 +98,9 @@ public class ExperienceController {
 	}
 
 	@GetMapping("VilleExperience/{idE}")
-	public Ville getVbyExp(@PathVariable int idE)
+	public String getVbyExp(@PathVariable int idE)
 	{
-		return ivr.getReferenceById(ier.findById(idE).get().getVilleExp().getId_ville());
+		return ier.getDestiByIdExp(idE);
 	}
 
 	@GetMapping("experienceIdC/{idC}")
@@ -108,5 +108,8 @@ public class ExperienceController {
 	{
 		return icr.findById(idC).get().getListeExperience();
 	}
+	
+	
+
 	
 }

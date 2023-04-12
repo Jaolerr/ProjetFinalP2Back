@@ -19,6 +19,8 @@ public interface IExperienceRepository extends JpaRepository<Experience, Integer
 	Experience getExperienceById(Integer id_voyage);
 
 	
-
+	@Query(value="select v.nom from intiformation_lab.a_villep2 v , intiformation_lab.a_experiencep2 e\r\n"
+			+ "where v.id_ville=e.id_ville and e.id_voyage=?", nativeQuery = true)
+	String getDestiByIdExp(Integer id_voyage); 
 	
 }

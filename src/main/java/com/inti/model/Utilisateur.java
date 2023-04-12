@@ -37,7 +37,7 @@ import lombok.ToString.Exclude;
 //@JsonIgnoreProperties({"listeExperience","listeUtilisateur"})
 @JsonIdentityInfo(
 		  generator = ObjectIdGenerators.PropertyGenerator.class, 
-		  property ="id_U")
+		  property ="id_U",scope = Utilisateur.class)
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Utilisateur {
 	

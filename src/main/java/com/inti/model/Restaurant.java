@@ -33,6 +33,7 @@ public class Restaurant {
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="id_ville")
 	@Exclude
+	
 	private Ville ville;
 	
 	@ManyToMany(mappedBy = "listeResto")

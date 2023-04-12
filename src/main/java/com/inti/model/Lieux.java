@@ -2,6 +2,7 @@ package com.inti.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 @Entity @Table (name="a_lieuxP2")
 @Data @NoArgsConstructor @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","listeExperience"})
 public class Lieux {
 
 	@Id
@@ -29,11 +30,11 @@ public class Lieux {
 	private double prix_L;
 	private String nom_L;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="id_ville")
 	
 	private Ville ville;
 	
-	@ManyToMany(mappedBy = "listLieuxExp")
+	@ManyToMany(mappedBy = "listeLieux")
 	private List<Experience> listeExperience;
 }

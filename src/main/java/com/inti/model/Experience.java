@@ -39,25 +39,25 @@ public class Experience {
 	private double depense;
 	private double rating_moyen;
 	
-	@ManyToOne(targetEntity = Utilisateur.class,cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH})
+	@ManyToOne(targetEntity = Utilisateur.class,cascade = {CascadeType.MERGE})
 	@JoinColumn(name="idu")
 	private Utilisateur u;
 	
-	@ManyToOne
+	@ManyToOne(cascade ={CascadeType.MERGE} )
 	@JoinColumn (name="id_ville")
-	private Ville VilleExp;
+	private Ville Ville;
 	
-	@ManyToOne
+	@ManyToOne(cascade ={CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH} )
 	@JoinColumn(name="id_trajet")
 	private Trajet trajet;
 	
-	@ManyToMany
+	@ManyToMany(cascade ={CascadeType.MERGE} )
 	@JoinTable(name="a_exp_lieux")
-	private List<Lieux> listLieuxExp;
+	private List<Lieux> listeLieux;
 	
-	@ManyToMany
+	@ManyToMany(cascade ={CascadeType.MERGE} )
 	@JoinTable(name="a_exp_restaurant")
-	private List<Restaurant> listRestaurantexp;
+	private List<Restaurant> listeResto;
 	
 	@ManyToMany
 	@JoinTable(name="a_exp_compagnie")

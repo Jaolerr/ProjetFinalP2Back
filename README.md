@@ -8,7 +8,7 @@ Voici le diagramme de classe de notre projet:
 ![MODEL MCD](https://user-images.githubusercontent.com/127097584/231392666-e41ea20c-2958-443b-aeda-c145eb7c103b.png)
 
 # Resumé
-Dans un premier temps nous avons réaliser la creation des classes répository, controller classiquement.
+Dans un premier temps nous avons réaliser la creation des classes, répository et  controller classiquement.
 
 ## Test
 Tests des requêtes avec postman
